@@ -4,10 +4,11 @@
   price: product.price,
   tax: product.tax,
   total: product.total,
-  image_url: product.image_url,
   description: product.description,
   is_discounted: product.is_discounted?,
-  stock_status: product.stock_status,
+  # stock_status: product.stock_status,
+  supplier: ( render partial: "api/suppliers/supplier.json.jb", locals: {supplier: product.supplier} ),
+  images: product.images.map {|image| render partial: "api/images/image.json.jb", locals: {image: image}},
   formatted: {
               price: number_to_currency(product.price),
               tax: number_to_currency(product.tax),

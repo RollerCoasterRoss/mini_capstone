@@ -1,4 +1,7 @@
-class Product < ApplicationRecord
+class Product < ApplicationRecord 
+  belongs_to :supplier
+  has_many :images
+
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :name, length: {maximum: 255}
@@ -8,8 +11,6 @@ class Product < ApplicationRecord
   validates :price, numericality: {less_than: 1000000000}
 
   validates :description, length: {in: 10..500}
-
-  validates :image_url, length: {maximum: 255}
 
   def is_discounted?
     price < 200000

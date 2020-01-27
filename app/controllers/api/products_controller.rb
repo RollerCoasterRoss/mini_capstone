@@ -1,5 +1,5 @@
-class Api::ProductsController < ApplicationController  
-  def index
+class Api::ProductsController < ApplicationController 
+  def index 
     @products = Product.all
 
     name_search = params[:search]
@@ -28,11 +28,10 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
-                            name: params[:name],
+                            name: params[:name], 
                             price: params[:price],
-                            image_url: params[:image_url],
-                            description: params[:description]
-                            # stock_status: params[:stock_status]
+                            description: params[:description],
+                            supplier_id: params[:supplier_id]
                           )
     if @product.save
       render "show.json.jb"
@@ -51,9 +50,8 @@ class Api::ProductsController < ApplicationController
 
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
-    # @product.stock_status = params[:stock_status] || @product.stock_status
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
 
     @product.save
 
