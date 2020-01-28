@@ -1,5 +1,5 @@
 class Api::ProductsController < ApplicationController 
-  def index 
+  def index
     @products = Product.all
 
     name_search = params[:search]
