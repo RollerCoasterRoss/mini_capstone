@@ -18,7 +18,7 @@ class Api::ProductsController < ApplicationController
     if sort_attribute && sort_order
       @products = @products.order(sort_attribute => sort_order)
     elsif sort_attribute
-      @products = @products.order(sort_attribute)
+      @products = @products.order(sort_attribute) 
     else
       @products = @products.order(:id)
     end

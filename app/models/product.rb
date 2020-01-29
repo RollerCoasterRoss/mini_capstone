@@ -13,7 +13,7 @@ class Product < ApplicationRecord
 
   validates :description, length: {in: 10..500}
 
-  def is_discounted?
+  def is_discounted? 
     price < 200000
   end
 
