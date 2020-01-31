@@ -6,7 +6,7 @@
   total: product.total,
   description: product.description,
   is_discounted: product.is_discounted?,
-  # stock_status: product.stock_status,
+  categories: product.categories.map {|category| category.name},
   supplier: ( render partial: "api/suppliers/supplier.json.jb", locals: {supplier: product.supplier} ),
   images: product.images.map {|image| render partial: "api/images/image.json.jb", locals: {image: image}},
   formatted: {
