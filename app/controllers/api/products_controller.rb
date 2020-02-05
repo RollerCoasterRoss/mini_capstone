@@ -34,7 +34,7 @@ class Api::ProductsController < ApplicationController
     render "index.json.jb"
   end
 
-  def create
+  def create 
     @product = Product.new(
                             name: params[:name], 
                             price: params[:price],
@@ -45,7 +45,7 @@ class Api::ProductsController < ApplicationController
       render "show.json.jb"
     else
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
-    end
+    end 
   end
 
   def show

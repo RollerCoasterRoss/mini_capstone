@@ -1,7 +1,8 @@
-class Product < ApplicationRecord 
-  belongs_to :supplier
+class Product < ApplicationRecord
   has_many :images
-  has_many :orders
+  has_many :carted_products
+  has_many :orders, through: :carted_products
+  belongs_to :supplier
 
   has_many :product_categories
   has_many :categories, through: :product_categories
@@ -16,7 +17,7 @@ class Product < ApplicationRecord
 
   validates :description, length: {in: 10..500}
 
-  def is_discounted? 
+  def is_discounted?
     price < 200000
   end
 

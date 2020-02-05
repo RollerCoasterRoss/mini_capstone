@@ -1,10 +1,8 @@
 {
   id: order.id,
   user_id: order.user_id,
-  product_id: order.product_id,
-  quanity: order.quanity,
   subtotal: order.subtotal,
   tax: order.tax,
   total: order.total,
-  price: order.product.price
+  carted_products: order.carted_products.map{|carted_product| render partial: "api/carted_products/carted_product.json.jb", locals: {carted_product: carted_product}}
 }
